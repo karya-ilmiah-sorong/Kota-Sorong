@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Siswa</title>
+    <style>
+        /* Default style for mobile devices */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2196F3;
+        }
+        .info-message {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+            background-color: #2196F3;
+            color: white;
+            margin-left: -15px;
+        }
+        .student-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .radio-button {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .radio-button[data-value="Hadir"] {
+            background-color: #4CAF50; /* Hijau */
+        }
+        .radio-button[data-value="Izin"] {
+            background-color: #FF9800; /* Oranye */
+        }
+        .radio-button[data-value="Sakit"] {
+            background-color: #FFEB3B; /* Kuning */
+            color: black;
+        }
+        .radio-button[data-value="Alpa"] {
+            background-color: #F44336; /* Merah */
+        }
+        .radio-button.active {
+            background-color: white;
+            color: black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+        .error-message, .message {
+            display: none;
+            margin-top: 10px;
+        }
+        .error-message {
+            color: red;
+        }
+        .message {
+            color: white;
+            background-color: green;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            margin-left: -20px;
+        }
+        #submit-button, #reset-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+        #submit-button {
+            background-color: #4CAF50;
+        }
+        #reset-button {
+            background-color: #F44336;
+        }
+        #reset-button:hover, #submit-button:hover {
+            opacity: 0.9;
+        }
+        .select-all {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .select-all input {
+            margin-right: 10px;
+        }
+
+        /* Media query for mobile devices only */
+        @media only screen and (max-width: 768px) {
+            .container {
+                display: block;
+            }
+            #desktop-message {
+                display: none;
+            }
+            body {
+                padding: 10px;
+                max-width: 100%;
+                margin: 0;
+            }
+            .info-message {
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Hide the content for desktop views */
+        @media only screen and (min-width: 769px) {
+            body {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>ABSEN TAEKWONDO</h1>
+    
+    <!-- Container with form -->
+    <div id="desktop-message" style="text-align: center;">
+        <h2>Hanya bisa digunakan di perangkat mobile!</h2>
+    </div>
+
+    <form id="form">
+        <!-- Select All Checkbox -->
+        <div class="select-all">
+            <input type="checkbox" id="select-all" /> <label for="select-all">Semua Hadir</label>
+        </div>
+
+        <div class="info-message">
+            <div class="student-name">Alexandro Rafael Aditya Luturdas</div>
+            <input type="hidden" name="attendance1" id="attendance1">
+            <div class="radio-button" data-value="Hadir">Hadir</div>
+            <div class="radio-button" data-value="Izin">Izin</div>
+            <div class="radio-button" data-value="Sakit">Sakit</div>
+            <div class="radio-button" data-value="Alpa">Alpa</div>
+        </div>
+
+        <div class="info-message">
+            <div class="student-name">Maria Baru</div>
+            <input type="hidden" name="attendance2" id="attendance2">
+            <div class="radio-button" data-value="Hadir">Hadir</div>
+            <div class="radio-button" data-value="Izin">Izin</div>
+            <div class="radio-button" data-value="Sakit">Sakit</div>
+            <div class="radio-button" data-value="Alpa">Alpa</div>
+        </div>
+
+        <div class="info-message">
+            <div class="student-name">Dirgahayu Putra Arafa</div>
+            <input type="hidden" name="attendance3" id="attendance3">
+            <div class="radio-button" data-value="Hadir">Hadir</div>
+            <div class="radio-button" data-value="Izin">Izin</div>
+            <div class="radio-button" data-value="Sakit">Sakit</div>
+            <div class="radio-button" data-value="Alpa">Alpa</div>
+        </div>
+
+        <div class="info-message">
+            <div class="student-name">Yohanes Samuel Pedai</div>
+            <input type="hidden" name="attendance4" id="attendance4">
+            <div class="radio-button" data-value="Hadir">Hadir</div>
+            <div class="radio-button" data-value="Izin">Izin</div>
+            <div class="radio-button" data-value="Sakit">Sakit</div>
+            <div class="radio-button" data-value="Alpa">Alpa</div>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+        <div id="message" class="message"></div>
+        
+        <div class="button-container">
+            <button type="submit" id="submit-button">Kirim</button>
+            <button type="button" id="reset-button">Batal</button>
+        </div>
+    </form>
+
+    <script>
+        // Select all checkbox
+        document.getElementById("select-all").addEventListener("change", function() {
+            const isChecked = this.checked;
+            document.querySelectorAll(".info-message").forEach(studentDiv => {
+                const radioButtons = studentDiv.querySelectorAll(".radio-button");
+                const attendanceInput = studentDiv.querySelector("input[type='hidden']");
+                if (isChecked) {
+                    radioButtons.forEach(button => button.classList.remove("active"));
+                    const hadirButton = studentDiv.querySelector("[data-value='Hadir']");
+                    hadirButton.classList.add("active");
+                    attendanceInput.value = "Hadir";
+                } else {
+                    radioButtons.forEach(button => button.classList.remove("active"));
+                    attendanceInput.value = "";
+                }
+            });
+        });
+
+        // Set the attendance on radio button click
+        document.querySelectorAll(".info-message").forEach(studentDiv => {
+            const radioButtons = studentDiv.querySelectorAll(".radio-button");
+            const attendanceInput = studentDiv.querySelector("input[type='hidden']");
+
+            radioButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    radioButtons.forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+                    attendanceInput.value = button.getAttribute("data-value");
+                });
+            });
+        });
+
+        // Form submission
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let allSelected = true;
+            document.querySelectorAll("input[type='hidden']").forEach(input => {
+                if (!input.value) {
+                    allSelected = false;
+                }
+            });
+
+            if (!allSelected) {
+                document.getElementById("error-message").textContent = "Harap memilih opsi kehadiran untuk setiap siswa!";
+                document.getElementById("error-message").style.display = "block";
+                return;
+            } else {
+                document.getElementById("error-message").style.display = "none";
+            }
+
+            document.getElementById("message").textContent = "Loading...";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("submit-button").disabled = true;
+
+            var formData = new FormData(this);
+            var keyValuePairs = [];
+            for (var pair of formData.entries()) {
+                keyValuePairs.push(encodeURIComponent(pair[0]) + "=" + encodeURIComponent(pair[1]));
+            }
+
+            fetch("https://script.google.com/macros/s/AKfycbx6kT3iyKZr_2Hd5g-IgKZl9-N5CVURf4A0ujQxN3bATe5onL5bFUB_5pYIWjCdab5C/exec", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: keyValuePairs.join("&"),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("message").textContent = "Data berhasil dikirim!";
+                setTimeout(() => {
+                    document.getElementById("message").style.display = "none";
+                    document.getElementById("submit-button").disabled = false;
+                    document.getElementById("reset-button").click();
+                }, 2000);
+            })
+            .catch(error => {
+                console.error("Terjadi kesalahan:", error);
+                document.getElementById("message").textContent = "Terjadi kesalahan saat mengirim data!";
+                document.getElementById("submit-button").disabled = false;
+            });
+        });
+
+        // Reset form
+        document.getElementById("reset-button").addEventListener("click", function () {
+            document.querySelectorAll(".radio-button").forEach(button => button.classList.remove("active"));
+            document.querySelectorAll("input[type='hidden']").forEach(input => input.value = "");
+            document.getElementById("error-message").style.display = "none";
+            document.getElementById("message").style.display = "none";
+            document.getElementById("select-all").checked = false;
+        });
+    </script>
+</body>
+</html>
