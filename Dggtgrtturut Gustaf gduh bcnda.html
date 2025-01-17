@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Galeri Foto Responsif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .gallery {
+            display: grid;
+            gap: 15px;
+            justify-content: center;
+        }
+        /* Default untuk layar besar (5 kotak per baris) */
+        .gallery {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        /* Tablet (4 kotak per baris) */
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        /* Ponsel (2 kotak per baris) */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .photo-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .photo-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* Rasio 16:9 */
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .photo-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .date {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #555;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 3px;
+            font-size: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-open {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-download {
+            background-color: #008CBA;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            touch-action: pan-x pan-y; /* Memungkinkan zoom dengan pinch */
+        }
+        .modal .close-btn {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        @media (min-width: 1025px) {
+            .modal .close-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Galeri Foto Responsif</h1>
+    <div class="gallery">
+        <!-- Foto 1 -->
+        <div class="photo-container">
+            <div class="photo-wrapper">
+                <img src="foto1.jpg" alt="Foto 1" id="foto1">
+            </div>
+            <div class="date">17 Januari 2025</div>
+            <div class="buttons">
+                <button class="btn-open" onclick="bukaFoto('foto1.jpg')">Buka</button>
+                <button class="btn-download" onclick="downloadFoto('foto1.jpg')">Download</button>
+            </div>
+        </div>
+        <!-- Tambahkan foto lainnya di sini -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <span class="close-btn" onclick="tutupModal()">×</span>
+        <img id="modalImg" src="" alt="Gambar Asli">
+    </div>
+
+    <script>
+        let klikCount = 0;
+        let timeout;
+
+        function bukaFoto(src) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = src;
+            modal.style.display = 'flex';
+
+            // Atur perilaku khusus untuk ponsel/tablet
+            if (window.innerWidth <= 1024) {
+                modal.onclick = function () {
+                    klikCount++;
+                    if (klikCount === 2) {
+                        tutupModal();
+                        klikCount = 0;
+                    }
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => (klikCount = 0), 300);
+                };
+            }
+        }
+
+        function tutupModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        function downloadFoto(src) {
+            const link = document.createElement('a');
+            link.href = src;
+            link.download = src.split('/').pop();
+            link.click();
+        }
+    </script>
+</body>
+</html>
