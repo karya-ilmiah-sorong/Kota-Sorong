@@ -2,12 +2,29 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Daftar Nama - ABSEN 2025</title>
+    <link rel="icon" href="logo-icon.png" type="image/x-icon"> <!-- Ganti "logo-icon.png" dengan path logo Anda -->
     <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+/Edge */
+            user-select: none; /* Standard */
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
         th, td {
             border: 1px solid #ddd;
@@ -16,10 +33,15 @@
         }
         th {
             background-color: #f2f2f2;
+            font-size: 14px;
+        }
+        td.nama-lengkap {
+            font-size: 12px; /* Ukuran font 12px untuk kolom Nama Lengkap */
         }
         .summary-table {
-            width: 50%;
-            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
         }
         /* Warna untuk keterangan */
         .hadir {
@@ -33,6 +55,23 @@
         .alpa {
             background-color: #f8d7da; /* Merah muda */
             color: #721c24; /* Merah tua */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+            th, td {
+                padding: 6px;
+                font-size: 12px;
+            }
+            td.nama-lengkap {
+                font-size: 10px; /* Ukuran font lebih kecil untuk mobile */
+            }
+            .summary-table {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -49,182 +88,182 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td>Aldrian Ronaldson Tithieru</td>
+                <td class="nama-lengkap">Aldrian Ronaldson Tithieru</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Alfian Adi Purnomo</td>
+                <td class="nama-lengkap">Alfian Adi Purnomo</td>
                 <td class="alpa">Alpa</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>Aprilia Elisabet Yesnat</td>
+                <td class="nama-lengkap">Aprilia Elisabet Yesnat</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>Aurilius Tian Gerardo Saputra</td>
+                <td class="nama-lengkap">Aurilius Tian Gerardo Saputra</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>Bryan Edward Julyanto Bukari</td>
+                <td class="nama-lengkap">Bryan Edward Julyanto Bukari</td>
                 <td class="sakit">Sakit</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>Cici Deswita Febriani</td>
+                <td class="nama-lengkap">Cici Deswita Febriani</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td>Cinta Laura Hurulea</td>
+                <td class="nama-lengkap">Cinta Laura Hurulea</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td>Danyati</td>
+                <td class="nama-lengkap">Danyati</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>9</td>
-                <td>Deby Debora Kemesrar</td>
+                <td class="nama-lengkap">Deby Debora Kemesrar</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>Delvero Edwadt Kalami</td>
+                <td class="nama-lengkap">Delvero Edwadt Kalami</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>11</td>
-                <td>Elda W. Kamesfle</td>
+                <td class="nama-lengkap">Elda W. Kamesfle</td>
                 <td class="alpa">Alpa</td>
             </tr>
             <tr>
                 <td>12</td>
-                <td>Falen Pratama Ayge</td>
+                <td class="nama-lengkap">Falen Pratama Ayge</td>
                 <td class="sakit">Sakit</td>
             </tr>
             <tr>
                 <td>13</td>
-                <td>Falensia Marissa Runtu</td>
+                <td class="nama-lengkap">Falensia Marissa Runtu</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>14</td>
-                <td>Harry Panca Polsiary</td>
+                <td class="nama-lengkap">Harry Panca Polsiary</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>15</td>
-                <td>Herman Gabriel Fonataba</td>
+                <td class="nama-lengkap">Herman Gabriel Fonataba</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>16</td>
-                <td>Jessie Melissa Cantika Latue</td>
+                <td class="nama-lengkap">Jessie Melissa Cantika Latue</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>17</td>
-                <td>Juen Frida Lekalena</td>
+                <td class="nama-lengkap">Juen Frida Lekalena</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>18</td>
-                <td>Junior Paskal Tahitu</td>
+                <td class="nama-lengkap">Junior Paskal Tahitu</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>19</td>
-                <td>Kiki Khusnul Oktavianti</td>
+                <td class="nama-lengkap">Kiki Khusnul Oktavianti</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>20</td>
-                <td>Maria Fresenda Lewataka</td>
+                <td class="nama-lengkap">Maria Fresenda Lewataka</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>21</td>
-                <td>Maria Magdalena Snanfi</td>
+                <td class="nama-lengkap">Maria Magdalena Snanfi</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>22</td>
-                <td>Maya Rosaida Paa</td>
+                <td class="nama-lengkap">Maya Rosaida Paa</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>23</td>
-                <td>Melani Stefanny Lowatu</td>
+                <td class="nama-lengkap">Melani Stefanny Lowatu</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>24</td>
-                <td>Muhammad Fadlan</td>
+                <td class="nama-lengkap">Muhammad Fadlan</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>25</td>
-                <td>Naomi Tresia Paitei</td>
+                <td class="nama-lengkap">Naomi Tresia Paitei</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>26</td>
-                <td>Nathalia Rumbino</td>
+                <td class="nama-lengkap">Nathalia Rumbino</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>27</td>
-                <td>Novela Jessica Tabilangi</td>
+                <td class="nama-lengkap">Novela Jessica Tabilangi</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>28</td>
-                <td>Olga I. Liklikwatil</td>
+                <td class="nama-lengkap">Olga I. Liklikwatil</td>
                 <td class="sakit">Sakit</td>
             </tr>
             <tr>
                 <td>29</td>
-                <td>Rachel Manuela Mayor</td>
+                <td class="nama-lengkap">Rachel Manuela Mayor</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>30</td>
-                <td>Ratna Sari Abdulmuin</td>
+                <td class="nama-lengkap">Ratna Sari Abdulmuin</td>
                 <td class="alpa">Alpa</td>
             </tr>
             <tr>
                 <td>31</td>
-                <td>Raymond Edwin Soselisa</td>
+                <td class="nama-lengkap">Raymond Edwin Soselisa</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>32</td>
-                <td>Rizky</td>
+                <td class="nama-lengkap">Rizky</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>33</td>
-                <td>Samuel Fanik Tehupeiory</td>
+                <td class="nama-lengkap">Samuel Fanik Tehupeiory</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>34</td>
-                <td>Tiara Arung Silambi</td>
+                <td class="nama-lengkap">Tiara Arung Silambi</td>
                 <td class="hadir">Hadir</td>
             </tr>
             <tr>
                 <td>35</td>
-                <td>Wulan Rahmadani</td>
+                <td class="nama-lengkap">Wulan Rahmadani</td>
                 <td class="sakit">Sakit</td>
             </tr>
             <tr>
                 <td>36</td>
-                <td>Zainu</td>
+                <td class="nama-lengkap">Zainu</td>
                 <td class="hadir">Hadir</td>
             </tr>
         </tbody>
